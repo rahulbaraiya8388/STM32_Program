@@ -1,0 +1,30 @@
+17:49:37 **** Build of configuration Debug for project spl_1 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L152xC -c -I../Core/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_SPI_TxCpltCallback':
+../Core/Src/main.c:254:46: warning: passing argument 3 of 'HAL_SPI_TransmitReceive_IT' makes pointer from integer without a cast [-Wint-conversion]
+  254 |   HAL_SPI_TransmitReceive_IT(&hspi2, buff_tx,sizeof(buff_tx),1000);
+      |                                              ^~~~~~~~~~~~~~~
+      |                                              |
+      |                                              unsigned int
+In file included from ../Core/Inc/stm32l1xx_hal_conf.h:261,
+                 from ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_spi.h:692:98: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'unsigned int'
+  692 | HAL_StatusTypeDef HAL_SPI_TransmitReceive_IT(SPI_HandleTypeDef *hspi, uint8_t *pTxData, uint8_t *pRxData,
+      |                                                                                         ~~~~~~~~~^~~~~~~
+arm-none-eabi-gcc -o "spl_1.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\STM32_Projects\Workspace\spl_1\STM32L152RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="spl_1.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: spl_1.elf
+ 
+arm-none-eabi-size   spl_1.elf 
+arm-none-eabi-objdump -h -S  spl_1.elf  > "spl_1.list"
+   text	   data	    bss	    dec	    hex	filename
+   9540	     32	   1736	  11308	   2c2c	spl_1.elf
+Finished building: default.size.stdout
+ 
+Finished building: spl_1.list
+ 
+
+17:49:37 Build Finished. 0 errors, 1 warnings. (took 806ms)
+

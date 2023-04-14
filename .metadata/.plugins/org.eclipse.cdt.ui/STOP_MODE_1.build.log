@@ -1,0 +1,10 @@
+13:57:54 **** Incremental Build of configuration Debug for project STOP_MODE_1 ****
+make -j12 all 
+arm-none-eabi-size   STOP_MODE_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14044	     20	   1700	  15764	   3d94	STOP_MODE_1.elf
+Finished building: default.size.stdout
+ 
+
+13:57:54 Build Finished. 0 errors, 0 warnings. (took 573ms)
+

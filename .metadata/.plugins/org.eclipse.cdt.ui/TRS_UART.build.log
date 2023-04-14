@@ -1,0 +1,10 @@
+17:36:31 **** Incremental Build of configuration Debug for project TRS_UART ****
+make -j12 all 
+arm-none-eabi-size   TRS_UART.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12304	    120	   1672	  14096	   3710	TRS_UART.elf
+Finished building: default.size.stdout
+ 
+
+17:36:32 Build Finished. 0 errors, 0 warnings. (took 406ms)
+

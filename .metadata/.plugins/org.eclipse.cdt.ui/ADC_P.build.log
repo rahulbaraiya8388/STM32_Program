@@ -1,0 +1,30 @@
+17:58:46 **** Incremental Build of configuration Debug for project ADC_P ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L152xC -c -I../Core/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/syscalls.o"
+../Core/Src/syscalls.c: In function '_write':
+../Core/Src/syscalls.c:91:28: warning: passing argument 2 of 'HAL_UART_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+   91 |  HAL_UART_Transmit(&huart2,(uint16_t *)ptr,len,1000);
+      |                            ^~~~~~~~~~~~~~~
+      |                            |
+      |                            uint16_t * {aka short unsigned int *}
+In file included from ../Core/Inc/stm32l1xx_hal_conf.h:269,
+                 from ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/syscalls.c:32:
+../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_uart.h:721:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint16_t *' {aka 'short unsigned int *'}
+  721 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "ADC_P.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\STM32_Projects\Workspace\ADC_P\STM32L152RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC_P.elf
+ 
+arm-none-eabi-size   ADC_P.elf 
+arm-none-eabi-objdump -h -S  ADC_P.elf  > "ADC_P.list"
+   text	   data	    bss	    dec	    hex	filename
+  14820	    120	   1744	  16684	   412c	ADC_P.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC_P.list
+ 
+
+17:58:47 Build Finished. 0 errors, 1 warnings. (took 1s.297ms)
+

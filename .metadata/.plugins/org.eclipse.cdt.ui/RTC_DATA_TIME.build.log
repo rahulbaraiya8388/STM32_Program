@@ -1,0 +1,42 @@
+16:29:50 **** Incremental Build of configuration Debug for project RTC_DATA_TIME ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L152xC -c -I../Core/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:118:30: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  118 |    HAL_UART_Transmit(&huart2,date, sizeof(date), 300);
+      |                              ^~~~
+      |                              |
+      |                              char *
+In file included from ../Core/Inc/stm32l1xx_hal_conf.h:269,
+                 from ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_uart.h:721:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  721 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/main.c:119:30: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  119 |    HAL_UART_Transmit(&huart2,time, sizeof(time), 300);
+      |                              ^~~~
+      |                              |
+      |                              char *
+In file included from ../Core/Inc/stm32l1xx_hal_conf.h:269,
+                 from ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_uart.h:721:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  721 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "RTC_DATA_TIME.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\STM32_Projects\Workspace\RTC_DATA_TIME\STM32L152RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RTC_DATA_TIME.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: RTC_DATA_TIME.elf
+ 
+arm-none-eabi-size   RTC_DATA_TIME.elf 
+arm-none-eabi-objdump -h -S  RTC_DATA_TIME.elf  > "RTC_DATA_TIME.list"
+   text	   data	    bss	    dec	    hex	filename
+  12752	    120	   1776	  14648	   3938	RTC_DATA_TIME.elf
+Finished building: default.size.stdout
+ 
+Finished building: RTC_DATA_TIME.list
+ 
+
+16:29:51 Build Finished. 0 errors, 2 warnings. (took 680ms)
+

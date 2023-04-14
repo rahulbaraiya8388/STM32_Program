@@ -1,0 +1,24 @@
+15:37:44 **** Incremental Build of configuration Debug for project NPK ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L152xC -c -I../Core/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:133:7: warning: 'val2' is used uninitialized in this function [-Wuninitialized]
+  133 |       printf("%d  mg/kg",val2);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:136:7: warning: 'val3' is used uninitialized in this function [-Wuninitialized]
+  136 |       printf("%d  mg/kg",val3);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "NPK.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\STM32_Projects\Workspace\NPK\STM32L152RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="NPK.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: NPK.elf
+ 
+arm-none-eabi-size   NPK.elf 
+arm-none-eabi-objdump -h -S  NPK.elf  > "NPK.list"
+   text	   data	    bss	    dec	    hex	filename
+  13040	    128	   1672	  14840	   39f8	NPK.elf
+Finished building: default.size.stdout
+ 
+Finished building: NPK.list
+ 
+
+15:37:45 Build Finished. 0 errors, 2 warnings. (took 1s.465ms)
+

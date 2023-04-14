@@ -1,0 +1,10 @@
+16:26:08 **** Build of configuration Debug for project SPI_INTR ****
+make -j12 all 
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Core/Startup/startup_stm32l152rctx.d" -MT"Core/Startup/startup_stm32l152rctx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Startup/startup_stm32l152rctx.o" "../Core/Startup/startup_stm32l152rctx.s"
+../Core/Startup/startup_stm32l152rctx.s: Assembler messages:
+../Core/Startup/startup_stm32l152rctx.s:65: Error: bad instruction `s ldr r0,=_sdata'
+make: *** [Core/Startup/subdir.mk:19: Core/Startup/startup_stm32l152rctx.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+
+16:26:09 Build Failed. 2 errors, 0 warnings. (took 626ms)
+

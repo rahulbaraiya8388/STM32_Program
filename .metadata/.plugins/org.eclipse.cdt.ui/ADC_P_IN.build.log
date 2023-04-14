@@ -1,0 +1,30 @@
+17:33:17 **** Incremental Build of configuration Debug for project ADC_P_IN ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L152xC -c -I../Core/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_ADC_ConvCpltCallback':
+../Core/Src/main.c:265:30: warning: passing argument 1 of 'HAL_ADC_GetValue' from incompatible pointer type [-Wincompatible-pointer-types]
+  265 |  PORT_Value=HAL_ADC_GetValue(&hadc);
+      |                              ^~~~~
+      |                              |
+      |                              ADC_HandleTypeDef ** {aka struct __ADC_HandleTypeDef **}
+In file included from ../Core/Inc/stm32l1xx_hal_conf.h:197,
+                 from ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_adc.h:1301:61: note: expected 'ADC_HandleTypeDef *' {aka 'struct __ADC_HandleTypeDef *'} but argument is of type 'ADC_HandleTypeDef **' {aka 'struct __ADC_HandleTypeDef **'}
+ 1301 | uint32_t                HAL_ADC_GetValue(ADC_HandleTypeDef* hadc);
+      |                                          ~~~~~~~~~~~~~~~~~~~^~~~
+arm-none-eabi-gcc -o "ADC_P_IN.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\STM32_Projects\Workspace\ADC_P_IN\STM32L152RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_P_IN.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC_P_IN.elf
+ 
+arm-none-eabi-size   ADC_P_IN.elf 
+arm-none-eabi-objdump -h -S  ADC_P_IN.elf  > "ADC_P_IN.list"
+   text	   data	    bss	    dec	    hex	filename
+  14844	    120	   1744	  16708	   4144	ADC_P_IN.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC_P_IN.list
+ 
+
+17:33:18 Build Finished. 0 errors, 1 warnings. (took 1s.298ms)
+

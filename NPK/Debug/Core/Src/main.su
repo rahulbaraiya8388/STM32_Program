@@ -1,0 +1,7 @@
+../Core/Src/main.c:87:5:main	16	static
+../Core/Src/main.c:159:6:SystemClock_Config	80	static
+../Core/Src/main.c:203:13:MX_USART2_UART_Init	8	static
+../Core/Src/main.c:236:13:MX_GPIO_Init	40	static
+../Core/Src/main.c:270:9:nitrogen	8	static
+../Core/Src/main.c:296:9:measure_phosphorous	8	static
+../Core/Src/main.c:328:6:Error_Handler	4	static,ignoring_inline_asm

@@ -1,0 +1,37 @@
+17:18:37 **** Incremental Build of configuration Debug for project STANDBY_MODE ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L152xC -c -I../Core/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:218:13: error: invalid storage class for function 'MX_USART2_UART_Init'
+  218 | static void MX_USART2_UART_Init(void)
+      |             ^~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:251:13: error: invalid storage class for function 'MX_GPIO_Init'
+  251 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:289:1: error: expected declaration or statement at end of input
+  289 | }
+      | ^
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:51:13: warning: 'MX_GPIO_Init' used but never defined
+   51 | static void MX_GPIO_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:52:13: warning: 'MX_USART2_UART_Init' used but never defined
+   52 | static void MX_USART2_UART_Init(void);
+      |             ^~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:280:6: warning: 'Error_Handler' defined but not used [-Wunused-function]
+  280 | void Error_Handler(void)
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:251:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
+  251 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:218:13: warning: 'MX_USART2_UART_Init' defined but not used [-Wunused-function]
+  218 | static void MX_USART2_UART_Init(void)
+      |             ^~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:174:6: warning: 'SystemClock_Config' defined but not used [-Wunused-function]
+  174 | void SystemClock_Config(void)
+      |      ^~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+
+17:18:37 Build Failed. 4 errors, 6 warnings. (took 298ms)
+

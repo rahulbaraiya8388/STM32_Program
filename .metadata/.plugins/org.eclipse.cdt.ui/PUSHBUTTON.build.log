@@ -1,0 +1,10 @@
+14:50:57 **** Incremental Build of configuration Debug for project PUSHBUTTON ****
+make -j12 all 
+arm-none-eabi-size   PUSHBUTTON.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6452	     20	   1572	   8044	   1f6c	PUSHBUTTON.elf
+Finished building: default.size.stdout
+ 
+
+14:50:57 Build Finished. 0 errors, 0 warnings. (took 334ms)
+

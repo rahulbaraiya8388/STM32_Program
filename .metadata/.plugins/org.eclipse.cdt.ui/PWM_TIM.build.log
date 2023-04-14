@@ -1,0 +1,17 @@
+10:25:48 **** Incremental Build of configuration Debug for project PWM_TIM ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L152xC -c -I../Core/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "PWM_TIM.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\STM32_Projects\Workspace\PWM_TIM\STM32L152RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PWM_TIM.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PWM_TIM.elf
+ 
+arm-none-eabi-size   PWM_TIM.elf 
+arm-none-eabi-objdump -h -S  PWM_TIM.elf  > "PWM_TIM.list"
+   text	   data	    bss	    dec	    hex	filename
+  10092	     20	   1636	  11748	   2de4	PWM_TIM.elf
+Finished building: default.size.stdout
+ 
+Finished building: PWM_TIM.list
+ 
+
+10:25:49 Build Finished. 0 errors, 0 warnings. (took 1s.493ms)
+

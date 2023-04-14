@@ -1,0 +1,122 @@
+12:54:27 **** Build of configuration Debug for project temp_humi ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L152xC -c -I../Core/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I../Drivers/CMSIS/Include -I"D:/STM32_Projects/Workspace/temp_humi/Drivers/BSP/SHT21" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:141:14: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  141 |      sprintf(buffer,"%d.%dºC, %d.%dºF, %d.%d K, %d.%d%% RH\n",
+      |              ^~~~~~
+      |              |
+      |              unsigned char *
+In file included from ../Core/Src/main.c:24:
+d:\stm32cubeide_1.11.2\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.100.202210260954\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'unsigned char *'
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/main.c:141:23: warning: format '%d' expects argument of type 'int', but argument 3 has type 'int32_t' {aka 'long int'} [-Wformat=]
+  141 |      sprintf(buffer,"%d.%dºC, %d.%dºF, %d.%d K, %d.%d%% RH\n",
+      |                      ~^
+      |                       |
+      |                       int
+      |                      %ld
+  142 |        SHT2x_GetInteger(cel), SHT2x_GetDecimal(cel, 1),
+      |        ~~~~~~~~~~~~~~~~~~~~~
+      |        |
+      |        int32_t {aka long int}
+../Core/Src/main.c:141:26: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  141 |      sprintf(buffer,"%d.%dºC, %d.%dºF, %d.%d K, %d.%d%% RH\n",
+      |                         ~^
+      |                          |
+      |                          int
+      |                         %ld
+  142 |        SHT2x_GetInteger(cel), SHT2x_GetDecimal(cel, 1),
+      |                               ~~~~~~~~~~~~~~~~~~~~~~~~
+      |                               |
+      |                               uint32_t {aka long unsigned int}
+../Core/Src/main.c:141:33: warning: format '%d' expects argument of type 'int', but argument 5 has type 'int32_t' {aka 'long int'} [-Wformat=]
+  141 |      sprintf(buffer,"%d.%dºC, %d.%dºF, %d.%d K, %d.%d%% RH\n",
+      |                               ~^
+      |                                |
+      |                                int
+      |                               %ld
+  142 |        SHT2x_GetInteger(cel), SHT2x_GetDecimal(cel, 1),
+  143 |        SHT2x_GetInteger(fah), SHT2x_GetDecimal(fah, 1),
+      |        ~~~~~~~~~~~~~~~~~~~~~    
+      |        |
+      |        int32_t {aka long int}
+../Core/Src/main.c:141:36: warning: format '%d' expects argument of type 'int', but argument 6 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  141 |      sprintf(buffer,"%d.%dºC, %d.%dºF, %d.%d K, %d.%d%% RH\n",
+      |                                  ~^
+      |                                   |
+      |                                   int
+      |                                  %ld
+  142 |        SHT2x_GetInteger(cel), SHT2x_GetDecimal(cel, 1),
+  143 |        SHT2x_GetInteger(fah), SHT2x_GetDecimal(fah, 1),
+      |                               ~~~~~~~~~~~~~~~~~~~~~~~~
+      |                               |
+      |                               uint32_t {aka long unsigned int}
+../Core/Src/main.c:141:43: warning: format '%d' expects argument of type 'int', but argument 7 has type 'int32_t' {aka 'long int'} [-Wformat=]
+  141 |      sprintf(buffer,"%d.%dºC, %d.%dºF, %d.%d K, %d.%d%% RH\n",
+      |                                        ~^
+      |                                         |
+      |                                         int
+      |                                        %ld
+......
+  144 |        SHT2x_GetInteger(kel), SHT2x_GetDecimal(kel, 1),
+      |        ~~~~~~~~~~~~~~~~~~~~~             
+      |        |
+      |        int32_t {aka long int}
+../Core/Src/main.c:141:46: warning: format '%d' expects argument of type 'int', but argument 8 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  141 |      sprintf(buffer,"%d.%dºC, %d.%dºF, %d.%d K, %d.%d%% RH\n",
+      |                                           ~^
+      |                                            |
+      |                                            int
+      |                                           %ld
+......
+  144 |        SHT2x_GetInteger(kel), SHT2x_GetDecimal(kel, 1),
+      |                               ~~~~~~~~~~~~~~~~~~~~~~~~
+      |                               |
+      |                               uint32_t {aka long unsigned int}
+../Core/Src/main.c:141:52: warning: format '%d' expects argument of type 'int', but argument 9 has type 'int32_t' {aka 'long int'} [-Wformat=]
+  141 |      sprintf(buffer,"%d.%dºC, %d.%dºF, %d.%d K, %d.%d%% RH\n",
+      |                                                 ~^
+      |                                                  |
+      |                                                  int
+      |                                                 %ld
+......
+  145 |        SHT2x_GetInteger(rh), SHT2x_GetDecimal(rh, 1));
+      |        ~~~~~~~~~~~~~~~~~~~~                       
+      |        |
+      |        int32_t {aka long int}
+../Core/Src/main.c:141:55: warning: format '%d' expects argument of type 'int', but argument 10 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  141 |      sprintf(buffer,"%d.%dºC, %d.%dºF, %d.%d K, %d.%d%% RH\n",
+      |                                                    ~^
+      |                                                     |
+      |                                                     int
+      |                                                    %ld
+......
+  145 |        SHT2x_GetInteger(rh), SHT2x_GetDecimal(rh, 1));
+      |                              ~~~~~~~~~~~~~~~~~~~~~~~ 
+      |                              |
+      |                              uint32_t {aka long unsigned int}
+../Core/Src/main.c:146:48: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  146 |      HAL_UART_Transmit(&huart2, buffer, strlen(buffer), 1000);
+      |                                                ^~~~~~
+      |                                                |
+      |                                                unsigned char *
+In file included from ../Core/Src/main.c:25:
+d:\stm32cubeide_1.11.2\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.100.202210260954\tools\arm-none-eabi\include\string.h:41:17: note: expected 'const char *' but argument is of type 'unsigned char *'
+   41 | size_t  strlen (const char *);
+      |                 ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "temp_humi.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\STM32_Projects\Workspace\temp_humi\STM32L152RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="temp_humi.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: temp_humi.elf
+ 
+arm-none-eabi-size   temp_humi.elf 
+arm-none-eabi-objdump -h -S  temp_humi.elf  > "temp_humi.list"
+   text	   data	    bss	    dec	    hex	filename
+  18348	    120	   1744	  20212	   4ef4	temp_humi.elf
+Finished building: default.size.stdout
+ 
+Finished building: temp_humi.list
+ 
+
+12:54:32 Build Finished. 0 errors, 10 warnings. (took 5s.80ms)
+

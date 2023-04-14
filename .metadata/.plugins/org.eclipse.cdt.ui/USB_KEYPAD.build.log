@@ -1,0 +1,40 @@
+10:40:31 **** Incremental Build of configuration Debug for project USB_KEYPAD ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L053xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:324:38: warning: passing argument 2 of 'USBD_HID_SendReport' from incompatible pointer type [-Wincompatible-pointer-types]
+  324 |    USBD_HID_SendReport(&hUsbDeviceFS,&Keypadhid,sizeof(Keypadhid));
+      |                                      ^~~~~~~~~~
+      |                                      |
+      |                                      KeypadHID *
+In file included from ../Core/Src/main.c:25:
+../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc/usbd_hid.h:122:38: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'KeypadHID *'
+  122 |                             uint8_t *report,
+      |                             ~~~~~~~~~^~~~~~
+../Core/Src/main.c:328:38: warning: passing argument 2 of 'USBD_HID_SendReport' from incompatible pointer type [-Wincompatible-pointer-types]
+  328 |    USBD_HID_SendReport(&hUsbDeviceFS,&Keypadhid,sizeof(Keypadhid));
+      |                                      ^~~~~~~~~~
+      |                                      |
+      |                                      KeypadHID *
+In file included from ../Core/Src/main.c:25:
+../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc/usbd_hid.h:122:38: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'KeypadHID *'
+  122 |                             uint8_t *report,
+      |                             ~~~~~~~~~^~~~~~
+../Core/Src/main.c: In function 'read_keypad':
+../Core/Src/main.c:229:1: warning: control reaches end of non-void function [-Wreturn-type]
+  229 | }
+      | ^
+arm-none-eabi-gcc -o "USB_KEYPAD.elf" @"objects.list"   -mcpu=cortex-m0plus -T"D:\STM32_Projects\Workspace\USB_KEYPAD\STM32L053C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USB_KEYPAD.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: USB_KEYPAD.elf
+ 
+arm-none-eabi-size   USB_KEYPAD.elf 
+arm-none-eabi-objdump -h -S  USB_KEYPAD.elf  > "USB_KEYPAD.list"
+   text	   data	    bss	    dec	    hex	filename
+  35824	    352	   3720	  39896	   9bd8	USB_KEYPAD.elf
+Finished building: default.size.stdout
+ 
+Finished building: USB_KEYPAD.list
+ 
+
+10:40:32 Build Finished. 0 errors, 3 warnings. (took 1s.559ms)
+
